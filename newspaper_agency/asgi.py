@@ -1,5 +1,5 @@
 """
-ASGI config for taxi_service project.
+ASGI config for newspaper_agency project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
