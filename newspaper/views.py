@@ -36,7 +36,7 @@ def index(request):
         "num_visits": num_visits + 1,
     }
 
-    return render(request, "taxi/index.html", context=context)
+    return render(request, "newspaper/index.html", context=context)
 
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
