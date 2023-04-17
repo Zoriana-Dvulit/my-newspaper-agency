@@ -167,7 +167,7 @@ class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = RedactorCreationForm
 
 
-class RedactorExperienceView(LoginRequiredMixin, generic.UpdateView):
+class RedactorExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
     form_class = RedactorExperienceUpdateForm
     success_url = reverse_lazy("newspaper:redactor-list")
@@ -179,7 +179,7 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 @login_required
-def toggle_assign_to_car(request, pk):
+def toggle_assign_to_newspaper(request, pk):
     redactor = Redactor.objects.get(id=request.user.id)
     if (
         Newspaper.objects.get(id=pk) in redactor.newspapers.all()
