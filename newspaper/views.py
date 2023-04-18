@@ -116,13 +116,11 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
 
 class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
-    form_class = NewspaperForm
     success_url = reverse_lazy("newspaper:newspaper-list")
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
-    form_class = NewspaperForm
     success_url = reverse_lazy("newspaper:newspaper-list")
 
 
@@ -147,13 +145,6 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self) -> QuerySet:
         queryset = Redactor.objects.select_related("title")
-        #
-        # form = RedactorSearchForm(self.request.GET)
-        #
-        # if form.is_valid():
-        #     return queryset.filter(
-        #         model__icontains=form.cleaned_data["username"]
-
         return queryset
 
 
@@ -164,12 +155,11 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
-    form_class = RedactorCreationForm
+
 
 
 class RedactorExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
-    form_class = RedactorExperienceUpdateForm
     success_url = reverse_lazy("newspaper:redactor-list")
 
 
