@@ -147,13 +147,13 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self) -> QuerySet:
         queryset = Redactor.objects.select_related("title")
+        #
+        # form = RedactorSearchForm(self.request.GET)
+        #
+        # if form.is_valid():
+        #     return queryset.filter(
+        #         model__icontains=form.cleaned_data["username"]
 
-        form = RedactorSearchForm(self.request.GET)
-
-        if form.is_valid():
-            return queryset.filter(
-                model__icontains=form.cleaned_data["username"]
-            )
         return queryset
 
 
