@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class TestUserMixin:
     def create_test_user(self, **kwargs):
         defaults = {
