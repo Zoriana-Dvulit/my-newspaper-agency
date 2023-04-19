@@ -141,7 +141,7 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class AssignToNewspaperView(LoginRequiredMixin, View):
-    def get(self, request, pk):
+    def post(self, request, pk):
         redactor = Redactor.objects.get(id=request.user.id)
         newspaper = Newspaper.objects.get(id=pk)
         if newspaper in redactor.newspapers.all():
