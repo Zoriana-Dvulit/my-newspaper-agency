@@ -16,7 +16,7 @@ from .views import (
     TopicCreateView,
     TopicUpdateView,
     TopicDeleteView,
-    toggle_assign_to_newspaper,
+    AssignToNewspaperView,
 )
 
 urlpatterns = [
@@ -37,7 +37,7 @@ urlpatterns = [
         name="topic-update",
     ),
     path(
-        "topicss/<int:pk>/delete/",
+        "topics/<int:pk>/delete/",
         TopicDeleteView.as_view(),
         name="topic-delete",
     ),
@@ -47,9 +47,9 @@ urlpatterns = [
     path("newspapers/<int:pk>/update/", NewspaperUpdateView.as_view(), name="newspaper-update"),
     path("newspapers/<int:pk>/delete/", NewspaperDeleteView.as_view(), name="newspaper-delete"),
     path(
-        "newspapers/<int:pk>/toggle-assign/",
-        toggle_assign_to_newspaper,
-        name="toggle-newspaper-assign",
+        "assign-to-newspaper/<int:pk>",
+        AssignToNewspaperView.as_view(),
+        name="assign-to-newspaper"
     ),
     path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path(
@@ -70,6 +70,7 @@ urlpatterns = [
         RedactorDeleteView.as_view(),
         name="redactor-delete",
     ),
+
 ]
 
 app_name = "newspaper"
