@@ -33,7 +33,7 @@
               {{ newspaper.title }}
           </td>
           <td>
-          <a href="{% url "taxi:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
+          <a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
           {{ newspaper.title }} ({{ newspaper.topic.name }})
         <td>
               <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}">
