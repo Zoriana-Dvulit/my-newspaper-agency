@@ -3,6 +3,7 @@ from unittest import TestCase
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.reverse import reverse
+from rest_framework.test import APIClient
 from rest_framework.utils import json
 
 from newspaper.models import Topic, Redactor, Newspaper
@@ -23,6 +24,7 @@ class TestUserMixin:
 
 class NewspaperAPITest(TestCase):
     def setUp(self):
+        self.client = APIClient()
         self.topic = Topic.objects.create(name="Test Topic")
         self.redactor = Redactor.objects.create(username="testuser", password="testpassword", first_name="Test",
                                                 last_name="User")
@@ -84,9 +86,10 @@ class NewspaperAPITest(TestCase):
         self.assertEqual(response.data["topic"], self.topic.id)
         self.assertEqual(response.data["publishers"][0]["id"], self.redactor.id)
 
+
 class RedactorTestCase(TestCase, TestUserMixin):
     def setUp(self):
-        # self.client = APIClient()
+        self.client = APIClient()
         self.redactor = Redactor.objects.create(
             username="testuser", email="testuser@example.com", password="password"
         )
@@ -123,14 +126,15 @@ class RedactorTestCase(TestCase, TestUserMixin):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_redactor_delete(self):
-        url = reverse('redactor-detail', kwargs={'pk': self.redactor.pk})
+        url = reverse("redactor-detail", kwargs={"pk": self.redactor.pk})
         response = self.client.delete(url)
 
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
+
 class TopicAPITest(TestCase):
     def setUp(self):
-        # self.client = APIClient()
+        self.client = APIClient()
         self.topic1 = Topic.objects.create(name="Politics")
         self.topic2 = Topic.objects.create(name="Technology")
 
