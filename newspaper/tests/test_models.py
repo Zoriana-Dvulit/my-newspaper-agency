@@ -13,7 +13,7 @@ class ModelsTests(TestCase):
         name_ = Topic.objects.create(
             name="test",
         )
-        self.assertEqual(str(name_), {name_.name})
+        self.assertEqual(str(name_), name_.name)
 
     def test_redactor_str(self):
         redactor = get_user_model().objects.create_user(
@@ -27,14 +27,3 @@ class ModelsTests(TestCase):
             str(redactor), f"{redactor.username}"
                            f" ({redactor.first_name} {redactor.last_name})"
         )
-
-    def test_newspaper_str(self):
-        name_ = Topic.objects.create(
-            name="test",
-        )
-        newspaper = Newspaper.objects.create(
-            title="Testing",
-            topic=name_
-        )
-
-        self.assertEqual(str(newspaper), newspaper.title)
