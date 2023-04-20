@@ -9,15 +9,15 @@
     </a>
   </h1>
   <form action="" method="get" class="form-inline">
-  <div class="row">
-    <div class="col">
-      {{ search_form|crispy }}
+    <div class="row">
+      <div class="col">
+        {{ search_form|crispy }}
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-secondary" type="submit">&#128269;</button>
+      </div>
     </div>
-    <div class="col-auto">
-      <button class="btn btn-secondary" type="submit">&#128269;</button>
-    </div>
-  </div>
-</form>
+  </form>
   {% if newspaper_list %}
     <table class="table">
       <tr>
@@ -33,25 +33,25 @@
       {% for newspaper in newspaper_list %}
         <tr>
           <td>
-              {{ newspaper.id }}
+            {{ newspaper.id }}
           </td>
           <td>
-              {{ newspaper.title }}
+            {{ newspaper.title }}
           </td>
           <td>
-          <a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
-          {{ newspaper.title }} ({{ newspaper.topic.name }})
-        <td>
-              <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}">
-                Update
-              </a>
-            </td>
-            <td>
-              <a style="color: red"
-                href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}">
-                Delete
-              </a>
-            </td>
+            <a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
+            {{ newspaper.title }} ({{ newspaper.topic.name }})
+          <td>
+            <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}">
+              Update
+            </a>
+          </td>
+          <td>
+            <a style="color: red"
+               href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}">
+              Delete
+            </a>
+          </td>
         </tr>
       {% endfor %}
     </table>
