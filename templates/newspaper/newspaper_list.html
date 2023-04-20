@@ -9,9 +9,15 @@
     </a>
   </h1>
   <form action="" method="get" class="form-inline">
-  {{ search_form|crispy }}
-  <input class="btn btn-secondary" type="submit" value="&#128269;">
-  </form>
+  <div class="row">
+    <div class="col">
+      {{ search_form|crispy }}
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-secondary" type="submit">&#128269;</button>
+    </div>
+  </div>
+</form>
   {% if newspaper_list %}
     <table class="table">
       <tr>

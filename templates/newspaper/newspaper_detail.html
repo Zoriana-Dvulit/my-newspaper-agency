@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>
-    {{ car.model }}
+    {{ newspaper.title }}
     <a href="{% url 'newspaper:newspaper-delete' pk=car.id %}" class="btn btn-danger link-to-page">
       Delete
     </a>
