@@ -89,11 +89,13 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
 
 class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
+    fields = ["title", "content", "published_date", "topic"]
     success_url = reverse_lazy("newspaper:newspaper-list")
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
+    fields = ["title", "content", "published_date", "topic"]
     success_url = reverse_lazy("newspaper:newspaper-list")
 
 
@@ -128,10 +130,12 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
+    fields = ["username", "email", "password", "first_name", "last_name", "years_of_experience"]
 
 
 class RedactorExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
+    fields = ["years_of_experience"]
     success_url = reverse_lazy("newspaper:redactor-list")
 
 
