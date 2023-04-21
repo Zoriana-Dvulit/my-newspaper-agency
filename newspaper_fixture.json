@@ -15,7 +15,7 @@
   },
   {
     "model": "newspaper.redactor",
-    "pk": 1,
+    "pk": 15,
     "fields": {
       "username": "testuser",
       "email": "testuser@example.com",
