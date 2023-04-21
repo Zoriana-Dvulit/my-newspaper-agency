@@ -17,20 +17,9 @@
     "model": "newspaper.redactor",
     "pk": 1,
     "fields": {
-      "username": "testuser1",
-      "email": "testuser1@example.com",
-      "password": "password123",
-      "years_of_experience": 3
-    }
-  },
-  {
-    "model": "newspaper.redactor",
-    "pk": 2,
-    "fields": {
-      "username": "testuser2",
-      "email": "testuser2@example.com",
-      "password": "password123",
-      "years_of_experience": 5
+      "username": "testuser",
+      "email": "testuser@example.com",
+      "password": "password",
     }
   },
   {
