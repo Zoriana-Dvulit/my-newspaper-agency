@@ -19,7 +19,7 @@
     "fields": {
       "username": "testuser",
       "email": "testuser@example.com",
-      "password": "password",
+      "password": "password"
     }
   },
   {
